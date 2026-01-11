@@ -2,420 +2,111 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <title>Lansa Invoice Pro – Support</title>
-  <meta name="description" content="Support för Lansa Invoice Pro (Svenska / English). FAQ, kontakt, integritet och felsökning." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lansa Invoice Pro — Support</title>
 
-  <style>
-    :root{
-      --bg: #0b0c10;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.09);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --border: rgba(255,255,255,.14);
-      --accent: #4da3ff;
-      --ok: #35d07f;
-      --warn: #ffcc66;
-      --danger: #ff5a5f;
-      --shadow: 0 24px 80px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1040px;
-      --pad: 18px;
-    }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f6f7fb;
-        --panel: rgba(0,0,0,.045);
-        --panel2: rgba(0,0,0,.07);
-        --text: rgba(0,0,0,.88);
-        --muted: rgba(0,0,0,.56);
-        --border: rgba(0,0,0,.12);
-        --shadow: 0 24px 80px rgba(0,0,0,.12);
-      }
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial;
-      color: var(--text);
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(77,163,255,.22), transparent 60%),
-                  radial-gradient(900px 600px at 85% 20%, rgba(53,208,127,.18), transparent 60%),
-                  var(--bg);
-    }
-    a{color:inherit}
-    .wrap{max-width: var(--max); margin: 0 auto; padding: 34px 18px 70px;}
-    header{
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border-radius: var(--radius2);
-      padding: 22px 22px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    header:before{
-      content:"";
-      position:absolute; inset:-120px -120px auto auto;
-      width:360px; height:360px;
-      background: radial-gradient(circle at 30% 30%, rgba(77,163,255,.25), transparent 60%);
-      transform: rotate(18deg);
-      pointer-events:none;
-    }
-    .topbar{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap}
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{
-      width:44px; height:44px; border-radius:14px;
-      border: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(77,163,255,.35), rgba(53,208,127,.22));
-      display:grid; place-items:center;
-      font-weight:900;
-      letter-spacing:.4px;
-    }
-    .lang{
-      display:flex; gap:8px; align-items:center;
-      padding: 8px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-    }
-    .pill{
-      appearance:none; border: 1px solid transparent;
-      background: transparent;
-      color: var(--muted);
-      font-weight: 700;
-      padding: 8px 10px;
-      border-radius: 12px;
-      cursor:pointer;
-    }
-    .pill[aria-pressed="true"]{
-      background: rgba(77,163,255,.20);
-      border-color: rgba(77,163,255,.35);
-      color: var(--text);
-    }
-    h1{margin: 14px 0 6px; font-size: 34px; letter-spacing: -0.7px}
-    .subtitle{margin:0; color: var(--muted); font-weight:600}
-    .grid{display:grid; grid-template-columns: 1.2fr .8fr; gap: 16px; margin-top: 16px}
-    @media (max-width: 920px){ .grid{grid-template-columns:1fr} }
-    .card{
-      border:1px solid var(--border);
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .card h2{margin:0 0 8px; font-size:16px}
-    .muted{color: var(--muted)}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(77,163,255,.35);
-      background: rgba(77,163,255,.18);
-      text-decoration:none;
-      font-weight: 800;
-      cursor:pointer;
-      user-select:none;
-    }
-    .btn.secondary{
-      border-color: var(--border);
-      background: var(--panel2);
-      font-weight: 750;
-    }
-    .btnrow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px}
-    .kv{display:grid; grid-template-columns: 1fr auto; gap: 10px; align-items:center; padding: 10px 12px; background: var(--panel2); border:1px solid var(--border); border-radius: 14px; margin-top: 10px}
-    code, .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-    .tag{display:inline-flex; align-items:center; gap:8px; padding: 7px 10px; border-radius: 999px; border:1px solid var(--border); background: var(--panel2); font-weight:800}
-    .dot{width:9px; height:9px; border-radius:999px; background: var(--ok); display:inline-block}
-    details{
-      border:1px solid var(--border);
-      background: var(--panel);
-      border-radius: 16px;
-      padding: 12px 14px;
-      margin-top: 10px;
-    }
-    summary{cursor:pointer; font-weight: 900}
-    details p{color: var(--muted); margin: 8px 0 0}
-    footer{
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
-    .sep{height:1px; background: var(--border); margin: 14px 0}
-    .small{font-size: 13px}
-    .copy{
-      border: 1px solid var(--border);
-      background: var(--panel2);
-      border-radius: 12px;
-      padding: 8px 10px;
-      cursor:pointer;
-      font-weight: 800;
-      color: var(--muted);
-    }
-  </style>
+  <meta name="description" content="Support, felsökning och kontakt för Lansa Invoice Pro." />
+  <meta name="theme-color" content="#0b0d12" />
+
+  <link rel="stylesheet" href="./assets/style.css" />
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="topbar">
-        <div class="brand">
-          <div class="logo" aria-hidden="true">LP</div>
-          <div>
-            <div class="tag"><span class="dot"></span><span data-i18n="status">Status: Online</span></div>
-          </div>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="./">
+        <div class="brand__mark">L</div>
+        <div class="brand__text">
+          <div class="title">Lansa Invoice Pro</div>
+          <div class="sub" data-i18n="subtitle">Hjälp, felsökning och kontakt för Lansa Invoice Pro.</div>
+        </div>
+      </a>
+
+      <div class="lang" aria-label="Language switch">
+        <button id="btnSv" class="pill" type="button" aria-pressed="true">SV</button>
+        <button id="btnEn" class="pill" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 data-i18n="title">Support</h1>
+      <p data-i18n="subtitle">Hjälp, felsökning och kontakt för Lansa Invoice Pro.</p>
+    </section>
+
+    <section class="grid">
+      <!-- Left -->
+      <div class="card">
+        <h2 data-i18n="quickTitle">Snabbhjälp</h2>
+        <p class="muted" data-i18n="quickDesc">Här är de vanligaste frågorna vi får.</p>
+
+        <div class="divider"></div>
+
+        <div class="kv">
+          <div class="muted" data-i18n="versionLabel">Version</div>
+          <strong id="appVersion">—</strong>
         </div>
 
-        <div class="lang" role="group" aria-label="Language switcher">
-          <button id="btnSv" class="pill" aria-pressed="true">Svenska</button>
-          <button id="btnEn" class="pill" aria-pressed="false">English</button>
+        <div class="kv">
+          <div class="muted" data-i18n="statusLabel">Status</div>
+          <span class="badge">
+            <span class="dot"></span>
+            <span data-i18n="statusOk">Allt ser bra ut</span>
+          </span>
         </div>
+
+        <div class="divider"></div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a id="mailLink" class="btn" href="#">
+            <span data-i18n="mailBtn">Kontakta support</span>
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <a id="privacyLink" class="btn secondary" href="#" rel="noopener">
+            <span data-i18n="privacyBtn">Integritetspolicy</span>
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <small class="muted">
+          Tips: Bifoga gärna skärmdump + tidpunkt. <code>Support</code>
+        </small>
       </div>
 
-      <h1 data-i18n="title">Support – Lansa Invoice Pro</h1>
-      <p class="subtitle" data-i18n="subtitle">Snabb hjälp, FAQ och kontakt för att lösa problem direkt.</p>
+      <!-- Right -->
+      <div class="card faq">
+        <h2 data-i18n="faqTitle">Vanliga frågor (FAQ)</h2>
 
-      <div class="grid">
-        <div class="card">
-          <h2 data-i18n="quickTitle">Snabb hjälp</h2>
-          <p class="muted" data-i18n="quickBody">
-            Hitta svar snabbt. Om du kontaktar support, skicka gärna med appversion och gärna en skärmbild.
-          </p>
+        <details open>
+          <summary data-i18n="faq1q">Hur når jag support?</summary>
+          <p data-i18n="faq1a">Skicka ett mail via knappen 'Kontakta support' och bifoga gärna skärmdumpar.</p>
+        </details>
 
-          <div class="btnrow">
-            <!-- Byt e-post vid behov -->
-            <a class="btn" id="supportMail" href="mailto:support@lansainvoicepro.com?subject=Lansa%20Invoice%20Pro%20-%20Support">
-              <span>✉️</span> <span data-i18n="contactBtn">Kontakta support</span>
-            </a>
+        <details>
+          <summary data-i18n="faq2q">Var hittar jag appversionen?</summary>
+          <p data-i18n="faq2a">Öppna Inställningar → Om. Version visas högst upp.</p>
+        </details>
 
-            <!-- Du kan peka denna mot en status-sida senare -->
-            <a class="btn secondary" id="statusLink" href="#" target="_blank" rel="noopener">
-              <span>📡</span> <span data-i18n="statusBtn">Se driftstatus</span>
-            </a>
+        <details>
+          <summary data-i18n="faq3q">Jag ser problem med iCloud/Sync</summary>
+          <p data-i18n="faq3a">Kontrollera att iCloud är på för appen i iOS-inställningar. Prova även att starta om appen.</p>
+        </details>
 
-            <!-- Länk till App Store subscriptions -->
-            <a class="btn secondary" href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">
-              <span>🧾</span> <span data-i18n="subsBtn">Hantera abonnemang</span>
-            </a>
-          </div>
-
-          <div class="sep"></div>
-
-          <div class="kv">
-            <div>
-              <div class="small mono" data-i18n="include">Bra att inkludera i supportärende:</div>
-              <div class="muted small">
-                <span data-i18n="include2">Appversion, iOS-version, samt (om möjligt) User ID/Workspace ID från Profil.</span>
-              </div>
-            </div>
-            <button class="copy" id="copyHint" type="button" data-i18n="copyBtn">Kopiera</button>
-          </div>
-
-          <div class="sep"></div>
-
-          <h2 data-i18n="faqTitle">FAQ</h2>
-
-          <details>
-            <summary data-i18n="faq1q">Jag ser ingen data / allt är tomt</summary>
-            <p data-i18n="faq1a">
-              Kontrollera att du är inloggad. Om du nyligen bytt konto: logga ut och logga in igen. Om problemet kvarstår, kontakta support.
-            </p>
-          </details>
-
-          <details>
-            <summary data-i18n="faq2q">Kvitton / abonnemang – hur återställer jag köp?</summary>
-            <p data-i18n="faq2a">
-              Gå till Profil → “Återställ”. Om det inte hjälper kan du hantera/avsluta i App Store under “Abonnemang”.
-            </p>
-          </details>
-
-          <details>
-            <summary data-i18n="faq3q">Appen kraschar vid start</summary>
-            <p data-i18n="faq3a">
-              Starta om telefonen och testa igen. Om det händer efter en uppdatering: skicka modell + iOS-version + skärmbild på felet till support.
-            </p>
-          </details>
-
-          <details>
-            <summary data-i18n="faq4q">Integritet – vad sparas?</summary>
-            <p data-i18n="faq4a">
-              Appen sparar dina fakturor/kunder/artiklar i din datalagring. Vi delar inte data med tredje part utan ditt syfte. Se integritetspolicyn nedan.
-            </p>
-          </details>
-        </div>
-
-        <div class="card">
-          <h2 data-i18n="infoTitle">Information</h2>
-
-          <div class="kv">
-            <div>
-              <div class="small mono">App</div>
-              <div class="muted small">Lansa Invoice Pro</div>
-            </div>
-            <div class="tag"><span data-i18n="platform">iOS</span></div>
-          </div>
-
-          <div class="kv">
-            <div>
-              <div class="small mono" data-i18n="privacy">Integritet</div>
-              <div class="muted small" data-i18n="privacy2">Läs vår policy och hur du når oss.</div>
-            </div>
-            <a class="btn secondary" href="#privacy"><span>🔒</span><span data-i18n="open">Öppna</span></a>
-          </div>
-
-          <div class="kv">
-            <div>
-              <div class="small mono" data-i18n="supportHours">Support</div>
-              <div class="muted small" data-i18n="supportHours2">Svar inom 24–48 timmar (vardagar).</div>
-            </div>
-            <div class="tag"><span data-i18n="time">CET</span></div>
-          </div>
-
-          <div class="sep"></div>
-
-          <h2 id="privacy" data-i18n="privacyTitle">Integritet & villkor</h2>
-          <p class="muted" data-i18n="privacyBody">
-            Den här sidan är vår supportkontakt. För integritet och villkor: beskriv kort hur data hanteras och hur användaren når oss.
-          </p>
-
-          <ul class="muted small">
-            <li data-i18n="privacyBul1">Du kan begära export/radering genom att kontakta support.</li>
-            <li data-i18n="privacyBul2">Abonnemang hanteras via Apple (App Store).</li>
-            <li data-i18n="privacyBul3">Vi använder endast information för att leverera appens funktioner och support.</li>
-          </ul>
-
-          <div class="sep"></div>
-
-          <p class="muted small" data-i18n="legalNote">
-            Obs: Byt gärna e-postadressen (support@...) och lägg till riktiga länkar innan App Store.
-          </p>
-        </div>
+        <details>
+          <summary data-i18n="faq4q">Köp/Pro — återställ köp?</summary>
+          <p data-i18n="faq4a">Gå till Profil → Återställ. Om det inte hjälper: kontrollera att du är inloggad på rätt Apple-ID.</p>
+        </details>
       </div>
+    </section>
 
-      <footer>
-        <div>© <span id="y"></span> Lansa Invoice Pro</div>
-        <div class="small muted" data-i18n="footer">Support-sida via GitHub Pages</div>
-      </footer>
-    </header>
-  </div>
+    <footer class="footer container">
+      <div data-i18n="footer">© Lansa Invoice Pro. Den här sidan är hostad via GitHub Pages.</div>
+    </footer>
+  </main>
 
-  <script>
-    const dict = {
-      sv: {
-        status: "Status: Online",
-        title: "Support – Lansa Invoice Pro",
-        subtitle: "Snabb hjälp, FAQ och kontakt för att lösa problem direkt.",
-        quickTitle: "Snabb hjälp",
-        quickBody: "Hitta svar snabbt. Om du kontaktar support, skicka gärna med appversion och gärna en skärmbild.",
-        contactBtn: "Kontakta support",
-        statusBtn: "Se driftstatus",
-        subsBtn: "Hantera abonnemang",
-        include: "Bra att inkludera i supportärende:",
-        include2: "Appversion, iOS-version, samt (om möjligt) User ID/Workspace ID från Profil.",
-        copyBtn: "Kopiera",
-        faqTitle: "FAQ",
-        faq1q: "Jag ser ingen data / allt är tomt",
-        faq1a: "Kontrollera att du är inloggad. Om du nyligen bytt konto: logga ut och logga in igen. Om problemet kvarstår, kontakta support.",
-        faq2q: "Kvitton / abonnemang – hur återställer jag köp?",
-        faq2a: "Gå till Profil → “Återställ”. Om det inte hjälper kan du hantera/avsluta i App Store under “Abonnemang”.",
-        faq3q: "Appen kraschar vid start",
-        faq3a: "Starta om telefonen och testa igen. Om det händer efter en uppdatering: skicka modell + iOS-version + skärmbild på felet till support.",
-        faq4q: "Integritet – vad sparas?",
-        faq4a: "Appen sparar dina fakturor/kunder/artiklar i din datalagring. Vi delar inte data med tredje part utan ditt syfte. Se integritetspolicyn nedan.",
-        infoTitle: "Information",
-        platform: "iOS",
-        privacy: "Integritet",
-        privacy2: "Läs vår policy och hur du når oss.",
-        open: "Öppna",
-        supportHours: "Support",
-        supportHours2: "Svar inom 24–48 timmar (vardagar).",
-        time: "CET",
-        privacyTitle: "Integritet & villkor",
-        privacyBody: "Den här sidan är vår supportkontakt. För integritet och villkor: beskriv kort hur data hanteras och hur användaren når oss.",
-        privacyBul1: "Du kan begära export/radering genom att kontakta support.",
-        privacyBul2: "Abonnemang hanteras via Apple (App Store).",
-        privacyBul3: "Vi använder endast information för att leverera appens funktioner och support.",
-        legalNote: "Obs: Byt gärna e-postadressen (support@...) och lägg till riktiga länkar innan App Store.",
-        footer: "Support-sida via GitHub Pages",
-      },
-      en: {
-        status: "Status: Online",
-        title: "Support – Lansa Invoice Pro",
-        subtitle: "Quick help, FAQ and contact to solve issues fast.",
-        quickTitle: "Quick help",
-        quickBody: "Find answers fast. When contacting support, include app version and ideally a screenshot.",
-        contactBtn: "Contact support",
-        statusBtn: "View system status",
-        subsBtn: "Manage subscription",
-        include: "Helpful info to include:",
-        include2: "App version, iOS version, and (if possible) User ID / Workspace ID from Profile.",
-        copyBtn: "Copy",
-        faqTitle: "FAQ",
-        faq1q: "I can’t see any data / everything is empty",
-        faq1a: "Make sure you’re signed in. If you recently switched accounts: sign out and sign in again. If it persists, contact support.",
-        faq2q: "Subscription – how do I restore purchases?",
-        faq2a: "Go to Profile → “Restore”. If it still doesn’t work, manage/cancel via App Store subscriptions.",
-        faq3q: "The app crashes on launch",
-        faq3a: "Restart your phone and try again. If it happens after an update, send device model + iOS version + a screenshot to support.",
-        faq4q: "Privacy – what is stored?",
-        faq4a: "The app stores your invoices/customers/items in your data storage. We don’t share data with third parties outside your purpose. See the privacy section below.",
-        infoTitle: "Info",
-        platform: "iOS",
-        privacy: "Privacy",
-        privacy2: "Read our policy and how to reach us.",
-        open: "Open",
-        supportHours: "Support",
-        supportHours2: "Replies within 24–48 hours (weekdays).",
-        time: "CET",
-        privacyTitle: "Privacy & terms",
-        privacyBody: "This page is our support contact. Add a short description of how data is handled and how users can reach you.",
-        privacyBul1: "You can request export/deletion by contacting support.",
-        privacyBul2: "Subscriptions are managed by Apple (App Store).",
-        privacyBul3: "We only use information to deliver app features and support.",
-        legalNote: "Note: Replace the support email (support@...) and add real links before App Store submission.",
-        footer: "Support page via GitHub Pages",
-      }
-    };
-
-    const $ = (s) => document.querySelector(s);
-    const setLang = (lang) => {
-      document.documentElement.lang = lang;
-      $("#btnSv").setAttribute("aria-pressed", lang === "sv");
-      $("#btnEn").setAttribute("aria-pressed", lang === "en");
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        el.textContent = dict[lang][key] ?? el.textContent;
-      });
-      try { localStorage.setItem("lang", lang); } catch {}
-    };
-
-    $("#btnSv").addEventListener("click", () => setLang("sv"));
-    $("#btnEn").addEventListener("click", () => setLang("en"));
-
-    // Copy helper text
-    $("#copyHint").addEventListener("click", async () => {
-      const lang = document.documentElement.lang || "sv";
-      const text = (lang === "sv")
-        ? "Appversion, iOS-version, User ID/Workspace ID (från Profil), beskrivning + skärmbild."
-        : "App version, iOS version, User ID/Workspace ID (from Profile), description + screenshot.";
-      try {
-        await navigator.clipboard.writeText(text);
-        $("#copyHint").textContent = (lang === "sv") ? "Kopierat!" : "Copied!";
-        setTimeout(() => $("#copyHint").textContent = dict[lang].copyBtn, 1100);
-      } catch {
-        // fallback
-        alert(text);
-      }
-    });
-
-    // Year
-    $("#y").textContent = new Date().getFullYear();
-
-    // Load preferred language
-    const stored = (() => { try { return localStorage.getItem("lang"); } catch { return null; } })();
-    if (stored === "en" || stored === "sv") setLang(stored);
-  </script>
+  <script src="./assets/app.js"></script>
 </body>
 </html>
