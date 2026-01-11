@@ -1,1 +1,685 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Lansa Invoice Pro – Support</title>
+  <meta name="description" content="Support för Lansa Invoice Pro: hjälp, FAQ, kontakt och status." />
 
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a30;
+      --muted:rgba(255,255,255,.72);
+      --muted2:rgba(255,255,255,.55);
+      --text:#fff;
+      --line:rgba(255,255,255,.10);
+      --brand:#3b82f6;
+      --brand2:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1060px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb;
+        --card:#ffffff;
+        --muted:rgba(10,16,30,.72);
+        --muted2:rgba(10,16,30,.55);
+        --text:#0a1020;
+        --line:rgba(10,16,30,.10);
+        --shadow: 0 16px 45px rgba(10,16,30,.12);
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 10% -10%, rgba(59,130,246,.25), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(900px 700px at 50% 120%, rgba(245,158,11,.14), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 54px}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:10px 0 22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(59,130,246,1), rgba(34,197,94,1));
+      box-shadow: 0 10px 25px rgba(59,130,246,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 50%);
+      transform: rotate(10deg);
+    }
+    .brand h1{
+      font-size:15px; margin:0; letter-spacing:.2px;
+    }
+    .brand p{
+      margin:0; font-size:12px; color:var(--muted2);
+    }
+    .lang{
+      display:flex; gap:8px; align-items:center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      padding:6px; border-radius:999px;
+      backdrop-filter: blur(10px);
+    }
+    .lang button{
+      border:0; background:transparent; color:var(--muted);
+      padding:8px 12px; border-radius:999px;
+      font-weight:700; cursor:pointer; font-size:13px;
+    }
+    .lang button.active{
+      background: rgba(59,130,246,.18);
+      color: var(--text);
+      outline: 1px solid rgba(59,130,246,.35);
+    }
+    header.hero{
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+    .hero h2{margin:0 0 8px; font-size:32px; letter-spacing:.2px}
+    .hero .sub{margin:0 0 16px; color:var(--muted); font-size:15px}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border: 1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      text-decoration:none;
+      font-weight:800;
+      font-size:13px;
+    }
+    .chip .dot{
+      width:9px; height:9px; border-radius:99px; background: var(--brand);
+      box-shadow: 0 0 0 4px rgba(59,130,246,.18);
+    }
+    .chip.green .dot{background:var(--brand2); box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+    .chip.warn .dot{background:var(--warn); box-shadow:0 0 0 4px rgba(245,158,11,.18)}
+    .card{
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      backdrop-filter: blur(12px);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .muted{color:var(--muted)}
+    .muted2{color:var(--muted2)}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+    .tile{
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      text-decoration:none;
+      display:flex; flex-direction:column; gap:10px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      min-height: 138px;
+    }
+    .tile:hover{transform: translateY(-1px); border-color: rgba(59,130,246,.35); background: rgba(59,130,246,.08)}
+    .tile .icon{
+      width:38px; height:38px; border-radius:14px;
+      background: rgba(59,130,246,.18);
+      display:grid; place-items:center;
+      border:1px solid rgba(59,130,246,.28);
+      font-weight:900;
+    }
+    .tile .title{font-weight:900}
+    .tile .desc{color:var(--muted); font-size:13px; margin-top:-4px}
+    .section{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width:900px){ .section{grid-template-columns:1fr} }
+    details{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      padding: 12px 14px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:900;
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    details summary::-webkit-details-marker{display:none}
+    details .body{margin-top:10px; color:var(--muted); font-size:14px}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      padding: 2px 6px;
+      border: 1px solid var(--line);
+      border-bottom-width: 2px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.05);
+      color: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .footer{
+      margin-top:22px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color: var(--muted2);
+      font-size: 13px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .btn.primary{
+      background: rgba(59,130,246,.18);
+      border-color: rgba(59,130,246,.35);
+    }
+    .btn.danger{
+      background: rgba(239,68,68,.12);
+      border-color: rgba(239,68,68,.28);
+    }
+    .small{font-size:12px}
+    .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#" aria-label="Lansa Invoice Pro Support">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Lansa Invoice Pro</h1>
+          <p id="tagline">Support & hjälp</p>
+        </div>
+      </a>
+
+      <div class="lang" role="group" aria-label="Language switcher">
+        <button id="btnSv" class="active" type="button">SV</button>
+        <button id="btnEn" type="button">EN</button>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <h2 id="heroTitle">Support</h2>
+          <p class="sub" id="heroSub">
+            Här hittar du svar på vanliga frågor, guider och hur du kontaktar oss.
+          </p>
+
+          <div class="chips">
+            <a class="chip" href="#faq">
+              <span class="dot" aria-hidden="true"></span>
+              <span id="chipFaq">FAQ</span>
+            </a>
+            <a class="chip green" href="#contact">
+              <span class="dot" aria-hidden="true"></span>
+              <span id="chipContact">Kontakt</span>
+            </a>
+            <a class="chip warn" href="#privacy">
+              <span class="dot" aria-hidden="true"></span>
+              <span id="chipPrivacy">Integritet</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card" id="statusCard">
+          <h3 id="statusTitle">Status</h3>
+          <p class="muted" id="statusBody">
+            Inga kända driftstörningar just nu.
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+            <a class="btn primary" id="btnEmail" href="mailto:support@lansa.se?subject=Lansa%20Invoice%20Pro%20-%20Support">
+              <span aria-hidden="true">✉️</span>
+              <span id="btnEmailText">Mejla support</span>
+            </a>
+            <a class="btn" id="btnIssues" href="#" target="_blank" rel="noreferrer">
+              <span aria-hidden="true">📝</span>
+              <span id="btnIssuesText">Rapportera problem</span>
+            </a>
+          </div>
+          <p class="muted2 small" id="statusHint" style="margin:12px 0 0">
+            Tips: inkludera appversion och en kort beskrivning av stegen som leder till problemet.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <a class="tile" href="#contact">
+          <div class="icon" aria-hidden="true">💬</div>
+          <div>
+            <div class="title" id="t1Title">Kontakt</div>
+            <div class="desc" id="t1Desc">Snabbaste vägen till hjälp.</div>
+          </div>
+          <div class="muted2 small" id="t1Meta">Svarstid: normalt 1–2 vardagar</div>
+        </a>
+
+        <a class="tile" href="#faq">
+          <div class="icon" aria-hidden="true">📚</div>
+          <div>
+            <div class="title" id="t2Title">Vanliga frågor</div>
+            <div class="desc" id="t2Desc">Kort, konkret och uppdaterat.</div>
+          </div>
+          <div class="muted2 small" id="t2Meta">Hittar du inte svaret? Mejla oss.</div>
+        </a>
+
+        <a class="tile" href="#privacy">
+          <div class="icon" aria-hidden="true">🔒</div>
+          <div>
+            <div class="title" id="t3Title">Integritet</div>
+            <div class="desc" id="t3Desc">Hur vi hanterar data.</div>
+          </div>
+          <div class="muted2 small" id="t3Meta">GDPR-fokus</div>
+        </a>
+      </div>
+    </header>
+
+    <section class="section" id="faq" aria-label="FAQ">
+      <div class="card">
+        <h3 id="faqTitle">FAQ</h3>
+
+        <details open>
+          <summary>
+            <span id="q1">Hur kontaktar jag support?</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="body" id="a1">
+            Mejla oss på <a href="mailto:support@lansa.se">support@lansa.se</a>.
+            Skriv gärna: appversion, din enhet (t.ex. iPhone 15), och vad som händer.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span id="q2">Vad ska jag skicka med vid felrapport?</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="body" id="a2">
+            Skicka en kort beskrivning + steg-för-steg, och om möjligt en skärmdump.
+            Om du ser ett “User ID” i appen, kopiera det och klistra in.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span id="q3">Jag har problem med köp / Pro</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="body" id="a3">
+            Pro-köp hanteras via App Store. Testa att öppna <span class="kbd">Inställningar</span> → <span class="kbd">Apple-ID</span> → <span class="kbd">Abonnemang</span>.
+            Om det fortfarande strular, mejla support och inkludera “Pro” samt vad du ser i appen.
+          </div>
+        </details>
+      </div>
+
+      <div class="card" id="contact">
+        <h3 id="contactTitle">Kontakt</h3>
+        <p class="muted" id="contactBody">
+          Vi hjälper dig med buggar, frågor, fakturor och Pro.
+        </p>
+
+        <div style="display:grid; gap:10px; margin-top:10px">
+          <a class="btn primary" href="mailto:support@lansa.se?subject=Lansa%20Invoice%20Pro%20-%20Support">
+            <span aria-hidden="true">✉️</span>
+            <span id="contactEmail">support@lansa.se</span>
+          </a>
+
+          <a class="btn" id="contactIssues" href="#" target="_blank" rel="noreferrer">
+            <span aria-hidden="true">📝</span>
+            <span id="contactIssuesText">Öppna en issue på GitHub</span>
+          </a>
+
+          <a class="btn danger" href="#privacy">
+            <span aria-hidden="true">🔒</span>
+            <span id="contactPrivacy">Integritet & data</span>
+          </a>
+        </div>
+
+        <p class="muted2 small" id="contactFoot" style="margin:12px 0 0">
+          Genom att kontakta support godkänner du att vi använder informationen för att hjälpa dig med ärendet.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="privacy" aria-label="Privacy">
+      <div class="card">
+        <h3 id="privacyTitle">Integritet</h3>
+        <p class="muted" id="privacyBody">
+          Lansa Invoice Pro är byggd för att minimera insamling av persondata.
+        </p>
+
+        <details open>
+          <summary>
+            <span id="p1">Vilken data lagras?</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="body" id="p1a">
+            Data du själv skapar i appen (kunder, artiklar, fakturor). Eventuella kontouppgifter krävs för inloggning och synk.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span id="p2">Delas data med tredje part?</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="body" id="p2a">
+            Endast om det behövs för drift (t.ex. App Store för köp). Vi säljer aldrig användardata.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span id="p3">Hur begär jag borttagning av data?</span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <div class="body" id="p3a">
+            Mejla <a href="mailto:support@lansa.se?subject=Lansa%20Invoice%20Pro%20-%20Data%20request">support@lansa.se</a> och skriv “Data request”.
+            Inkludera gärna ditt “User ID” från appen.
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h3 id="appInfoTitle">Appinfo</h3>
+        <p class="muted" id="appInfoBody">
+          Snabb info som hjälper vid felsökning.
+        </p>
+
+        <ul class="muted" style="margin:10px 0 0; padding-left:18px">
+          <li id="ai1">Plattform: iOS</li>
+          <li id="ai2">Språk: Svenska / English</li>
+          <li id="ai3">Support: support@lansa.se</li>
+        </ul>
+
+        <p class="muted2 small" id="appInfoFoot" style="margin:12px 0 0">
+          Vill du göra sidan mer “live”? Lägg in en status-länk eller driftinformation här.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>
+        <div><strong>Lansa Invoice Pro</strong> <span class="muted2">·</span> <span id="foot1">Support-sida</span></div>
+        <div class="small" id="foot2">Senast uppdaterad: <span id="updatedAt"></span></div>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn" href="#faq" id="footFaq">FAQ</a>
+        <a class="btn primary" href="mailto:support@lansa.se?subject=Lansa%20Invoice%20Pro%20-%20Support" id="footMail">Mejla</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // TODO: Sätt repo-länk så "Report issue" pekar rätt
+    const GITHUB_REPO_URL = ""; // ex: "https://github.com/meritonski/Lansa-Invoice-Pro"
+
+    const sv = {
+      tagline: "Support & hjälp",
+      heroTitle: "Support",
+      heroSub: "Här hittar du svar på vanliga frågor, guider och hur du kontaktar oss.",
+      chipFaq: "FAQ",
+      chipContact: "Kontakt",
+      chipPrivacy: "Integritet",
+
+      statusTitle: "Status",
+      statusBody: "Inga kända driftstörningar just nu.",
+      btnEmailText: "Mejla support",
+      btnIssuesText: "Rapportera problem",
+      statusHint: "Tips: inkludera appversion och en kort beskrivning av stegen som leder till problemet.",
+
+      t1Title: "Kontakt",
+      t1Desc: "Snabbaste vägen till hjälp.",
+      t1Meta: "Svarstid: normalt 1–2 vardagar",
+
+      t2Title: "Vanliga frågor",
+      t2Desc: "Kort, konkret och uppdaterat.",
+      t2Meta: "Hittar du inte svaret? Mejla oss.",
+
+      t3Title: "Integritet",
+      t3Desc: "Hur vi hanterar data.",
+      t3Meta: "GDPR-fokus",
+
+      faqTitle: "FAQ",
+      q1: "Hur kontaktar jag support?",
+      a1: 'Mejla oss på <a href="mailto:support@lansa.se">support@lansa.se</a>. Skriv gärna: appversion, din enhet (t.ex. iPhone 15), och vad som händer.',
+      q2: "Vad ska jag skicka med vid felrapport?",
+      a2: "Skicka en kort beskrivning + steg-för-steg, och om möjligt en skärmdump. Om du ser ett “User ID” i appen, kopiera det och klistra in.",
+      q3: "Jag har problem med köp / Pro",
+      a3: 'Pro-köp hanteras via App Store. Testa att öppna <span class="kbd">Inställningar</span> → <span class="kbd">Apple-ID</span> → <span class="kbd">Abonnemang</span>. Om det fortfarande strular, mejla support och inkludera “Pro” samt vad du ser i appen.',
+
+      contactTitle: "Kontakt",
+      contactBody: "Vi hjälper dig med buggar, frågor, fakturor och Pro.",
+      contactIssuesText: "Öppna en issue på GitHub",
+      contactPrivacy: "Integritet & data",
+      contactFoot: "Genom att kontakta support godkänner du att vi använder informationen för att hjälpa dig med ärendet.",
+
+      privacyTitle: "Integritet",
+      privacyBody: "Lansa Invoice Pro är byggd för att minimera insamling av persondata.",
+      p1: "Vilken data lagras?",
+      p1a: "Data du själv skapar i appen (kunder, artiklar, fakturor). Eventuella kontouppgifter krävs för inloggning och synk.",
+      p2: "Delas data med tredje part?",
+      p2a: "Endast om det behövs för drift (t.ex. App Store för köp). Vi säljer aldrig användardata.",
+      p3: "Hur begär jag borttagning av data?",
+      p3a: 'Mejla <a href="mailto:support@lansa.se?subject=Lansa%20Invoice%20Pro%20-%20Data%20request">support@lansa.se</a> och skriv “Data request”. Inkludera gärna ditt “User ID” från appen.',
+
+      appInfoTitle: "Appinfo",
+      appInfoBody: "Snabb info som hjälper vid felsökning.",
+      ai1: "Plattform: iOS",
+      ai2: "Språk: Svenska / English",
+      ai3: "Support: support@lansa.se",
+      appInfoFoot: "Vill du göra sidan mer “live”? Lägg in en status-länk eller driftinformation här.",
+
+      foot1: "Support-sida",
+      footFaq: "FAQ",
+      footMail: "Mejla",
+    };
+
+    const en = {
+      tagline: "Support & help",
+      heroTitle: "Support",
+      heroSub: "Find answers to common questions, guides, and how to contact us.",
+      chipFaq: "FAQ",
+      chipContact: "Contact",
+      chipPrivacy: "Privacy",
+
+      statusTitle: "Status",
+      statusBody: "No known outages right now.",
+      btnEmailText: "Email support",
+      btnIssuesText: "Report an issue",
+      statusHint: "Tip: include app version and clear steps to reproduce.",
+
+      t1Title: "Contact",
+      t1Desc: "Fastest way to get help.",
+      t1Meta: "Response time: usually 1–2 business days",
+
+      t2Title: "FAQ",
+      t2Desc: "Short, practical, up to date.",
+      t2Meta: "Can’t find it? Email us.",
+
+      t3Title: "Privacy",
+      t3Desc: "How we handle data.",
+      t3Meta: "GDPR-minded",
+
+      faqTitle: "FAQ",
+      q1: "How do I contact support?",
+      a1: 'Email <a href="mailto:support@lansa.se">support@lansa.se</a>. Please include: app version, device (e.g. iPhone 15), and what happens.',
+      q2: "What should I include in a bug report?",
+      a2: "Include a short description + step-by-step reproduction, and a screenshot if possible. If the app shows a “User ID”, copy and paste it.",
+      q3: "I have issues with purchases / Pro",
+      a3: 'Pro purchases are handled by the App Store. Try <span class="kbd">Settings</span> → <span class="kbd">Apple ID</span> → <span class="kbd">Subscriptions</span>. If it still fails, email support and mention “Pro” plus what you see in the app.',
+
+      contactTitle: "Contact",
+      contactBody: "We can help with bugs, questions, invoices, and Pro.",
+      contactIssuesText: "Open a GitHub issue",
+      contactPrivacy: "Privacy & data",
+      contactFoot: "By contacting support you agree we may use the information to help resolve your request.",
+
+      privacyTitle: "Privacy",
+      privacyBody: "Lansa Invoice Pro is built to minimize personal data collection.",
+      p1: "What data is stored?",
+      p1a: "Data you create in the app (customers, items, invoices). Account data may be required for sign-in and sync.",
+      p2: "Is data shared with third parties?",
+      p2a: "Only when needed for operations (e.g., App Store for purchases). We never sell user data.",
+      p3: "How do I request data deletion?",
+      p3a: 'Email <a href="mailto:support@lansa.se?subject=Lansa%20Invoice%20Pro%20-%20Data%20request">support@lansa.se</a> with “Data request”. Include your “User ID” from the app if available.',
+
+      appInfoTitle: "App info",
+      appInfoBody: "Quick info that helps troubleshooting.",
+      ai1: "Platform: iOS",
+      ai2: "Languages: Swedish / English",
+      ai3: "Support: support@lansa.se",
+      appInfoFoot: "Want this to feel more “live”? Add a status link or operational updates here.",
+
+      foot1: "Support page",
+      footFaq: "FAQ",
+      footMail: "Email",
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    function apply(dict){
+      $("tagline").textContent = dict.tagline;
+      $("heroTitle").textContent = dict.heroTitle;
+      $("heroSub").textContent = dict.heroSub;
+
+      $("chipFaq").textContent = dict.chipFaq;
+      $("chipContact").textContent = dict.chipContact;
+      $("chipPrivacy").textContent = dict.chipPrivacy;
+
+      $("statusTitle").textContent = dict.statusTitle;
+      $("statusBody").textContent = dict.statusBody;
+      $("btnEmailText").textContent = dict.btnEmailText;
+      $("btnIssuesText").textContent = dict.btnIssuesText;
+      $("statusHint").textContent = dict.statusHint;
+
+      $("t1Title").textContent = dict.t1Title;
+      $("t1Desc").textContent = dict.t1Desc;
+      $("t1Meta").textContent = dict.t1Meta;
+
+      $("t2Title").textContent = dict.t2Title;
+      $("t2Desc").textContent = dict.t2Desc;
+      $("t2Meta").textContent = dict.t2Meta;
+
+      $("t3Title").textContent = dict.t3Title;
+      $("t3Desc").textContent = dict.t3Desc;
+      $("t3Meta").textContent = dict.t3Meta;
+
+      $("faqTitle").textContent = dict.faqTitle;
+      $("q1").textContent = dict.q1; $("a1").innerHTML = dict.a1;
+      $("q2").textContent = dict.q2; $("a2").textContent = dict.a2;
+      $("q3").textContent = dict.q3; $("a3").innerHTML = dict.a3;
+
+      $("contactTitle").textContent = dict.contactTitle;
+      $("contactBody").textContent = dict.contactBody;
+      $("contactIssuesText").textContent = dict.contactIssuesText;
+      $("contactPrivacy").textContent = dict.contactPrivacy;
+      $("contactFoot").textContent = dict.contactFoot;
+
+      $("privacyTitle").textContent = dict.privacyTitle;
+      $("privacyBody").textContent = dict.privacyBody;
+      $("p1").textContent = dict.p1; $("p1a").textContent = dict.p1a;
+      $("p2").textContent = dict.p2; $("p2a").textContent = dict.p2a;
+      $("p3").textContent = dict.p3; $("p3a").innerHTML = dict.p3a;
+
+      $("appInfoTitle").textContent = dict.appInfoTitle;
+      $("appInfoBody").textContent = dict.appInfoBody;
+      $("ai1").textContent = dict.ai1;
+      $("ai2").textContent = dict.ai2;
+      $("ai3").textContent = dict.ai3;
+      $("appInfoFoot").textContent = dict.appInfoFoot;
+
+      $("foot1").textContent = dict.foot1;
+      $("footFaq").textContent = dict.footFaq;
+      $("footMail").textContent = dict.footMail;
+    }
+
+    // Wire up repo issue links if repo is provided
+    function setRepoLinks(){
+      if (!GITHUB_REPO_URL) return;
+      const issues = GITHUB_REPO_URL.replace(/\/$/, "") + "/issues/new";
+      const el1 = $("btnIssues");
+      const el2 = $("contactIssues");
+      el1.href = issues;
+      el2.href = issues;
+    }
+
+    function setUpdatedAt(){
+      const d = new Date();
+      $("updatedAt").textContent = d.toLocaleDateString(undefined, {year:"numeric",month:"short",day:"numeric"});
+    }
+
+    // Language switching
+    const btnSv = $("btnSv");
+    const btnEn = $("btnEn");
+
+    function setLang(code){
+      document.documentElement.lang = code === "sv" ? "sv" : "en";
+      if (code === "sv") { apply(sv); btnSv.classList.add("active"); btnEn.classList.remove("active"); }
+      else { apply(en); btnEn.classList.add("active"); btnSv.classList.remove("active"); }
+      localStorage.setItem("lansa_lang", code);
+    }
+
+    btnSv.addEventListener("click", () => setLang("sv"));
+    btnEn.addEventListener("click", () => setLang("en"));
+
+    // init
+    setRepoLinks();
+    setUpdatedAt();
+    const saved = localStorage.getItem("lansa_lang");
+    setLang(saved === "en" ? "en" : "sv");
+  </script>
+</body>
+</html>
